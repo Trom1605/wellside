@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Партнёрская программа — Wellside Properties | Зарабатывайте на рекомендациях недвижимости</title>
+<meta name="description" content="Партнёрская программа Wellside Properties — зарабатывайте до 30% комиссии, просто передавая клиентов. 7 реферальных уровней, личный кабинет в Telegram.">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/png" href="img/logo2.png" sizes="128x128">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#f7f3ec;--bg2:#f1ebe1;--panel:#fffdf9;--panel2:#f3eee4;
+    --ink:#2b2620;--ink2:#4a4338;--muted:#8a8175;
+    --line:rgba(176,143,86,.20);
+    --gold:#b08f56;--gold2:#c9a978;--gold3:#9a7c45;--dark:#2b2620;
+    --radius:18px;--maxw:1180px;
+    --grad-gold:linear-gradient(135deg,#cdaa72 0%,#b08f56 50%,#9a7c45 100%);
+    --shadow-sm:0 10px 30px -16px rgba(75,60,35,.35);
+    --shadow-md:0 26px 60px -30px rgba(75,60,35,.45);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Montserrat',sans-serif;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Montserrat',sans-serif;font-weight:700;line-height:1.14;letter-spacing:-.5px;color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .gold-text{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold3);font-weight:600}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;
+    padding:15px 30px;border-radius:999px;cursor:pointer;border:1px solid transparent;
+    transition:.35s cubic-bezier(.2,.7,.3,1);position:relative;overflow:hidden;font-family:'Montserrat',sans-serif}
+  .btn-gold{background:var(--grad-gold);color:#fffaf0;box-shadow:0 12px 28px -10px rgba(176,143,86,.6)}
+  .btn-gold:hover{transform:translateY(-3px);box-shadow:0 20px 40px -12px rgba(176,143,86,.7)}
+  .btn-gold::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);transition:left .7s}
+  .btn-gold:hover::after{left:140%}
+  .btn-ghost{background:#fffdf9;color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold3);transform:translateY(-3px);box-shadow:var(--shadow-sm)}
+  .btn .arrow{transition:transform .35s}
+  .btn:hover .arrow{transform:translateX(4px)}
+
+  /* Header */
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.4s;background:transparent;border-bottom:1px solid transparent}
+  header.nav.scrolled{background:rgba(247,243,236,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);box-shadow:0 6px 24px -18px rgba(75,60,35,.5)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:120px}
+  .nav-logo{position:relative;display:inline-block}
+  .nav-logo .mark{height:98px;width:auto;display:block}
+  .nav-links{display:flex;gap:34px;align-items:center}
+  .nav-links a{font-size:14px;color:#5d5648;font-weight:500;position:relative;transition:.3s}
+  .nav-links a:hover{color:var(--gold3)}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:.3s}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{display:flex;align-items:center;gap:18px}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0;padding:8px}
+  .burger span{width:24px;height:2px;background:var(--gold3);transition:.3s}
+
+  /* Hero */
+  .p-hero{min-height:80vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:160px 0 80px;
+    background:linear-gradient(120deg,#f7f3ec 0%,#f3ece0 55%,#efe6d6 100%)}
+  .p-hero .blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;z-index:0}
+  .p-hero .blob.b1{width:520px;height:520px;background:radial-gradient(circle,rgba(205,170,114,.55),transparent 70%);top:-120px;right:-80px;animation:floatblob 16s ease-in-out infinite}
+  .p-hero .blob.b2{width:420px;height:420px;background:radial-gradient(circle,rgba(176,143,86,.35),transparent 70%);bottom:-140px;left:-60px;animation:floatblob 20s ease-in-out infinite reverse}
+  @keyframes floatblob{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-30px) scale(1.08)}}
+  .p-hero-inner{position:relative;z-index:3;max-width:780px}
+  .p-hero h1{font-size:clamp(30px,5vw,54px);margin:16px 0 0}
+  .p-hero .lead{font-size:clamp(16px,1.6vw,19px);color:var(--ink2);max-width:640px;margin:22px 0 0}
+  .p-hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:34px}
+  .p-hero-stats{display:flex;gap:36px;margin-top:46px;flex-wrap:wrap}
+  .p-hero-stats .st .n{font-size:38px;font-weight:800;letter-spacing:-1px;color:var(--gold3);line-height:1}
+  .p-hero-stats .st .l{font-size:13px;color:var(--muted);margin-top:4px;max-width:150px}
+
+  /* Reveal */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.3,1),transform .9s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+
+  /* Section */
+  .sec-pad{padding:108px 0}
+  .sec-head{max-width:680px;margin-bottom:52px}
+  .sec-head h2{font-size:clamp(26px,3.6vw,42px);margin:14px 0 0}
+  .sec-head p{color:var(--muted);font-size:17px;margin-top:16px}
+  .sec-center{margin-left:auto;margin-right:auto;text-align:center}
+
+  /* Advantages */
+  .adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .adv{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:32px;transition:.4s;box-shadow:var(--shadow-sm)}
+  .adv:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:rgba(176,143,86,.45)}
+  .adv .ico{font-size:28px;color:var(--gold);margin-bottom:12px}
+  .adv h3{font-size:20px;margin:0 0 8px}
+  .adv p{color:var(--muted);font-size:16px;margin:0}
+
+  /* How it works */
+  .steps{counter-reset:step}
+  .step{display:grid;grid-template-columns:90px 1fr;gap:28px;padding:30px 0;border-bottom:1px solid var(--line);align-items:start}
+  .step:last-child{border-bottom:0}
+  .step .sn{counter-increment:step;font-weight:800;font-size:46px;letter-spacing:-2px;color:transparent;-webkit-text-stroke:1.4px var(--gold);line-height:1}
+  .step .sn::before{content:"0" counter(step)}
+  .step h3{font-size:22px;margin:0 0 6px}
+  .step p{color:var(--muted);margin:0;max-width:640px;font-size:16px}
+
+  /* Network levels */
+  .levels{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:44px;box-shadow:var(--shadow-sm)}
+  .levels h3{font-size:24px;margin:0 0 24px}
+  .level{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px dashed var(--line)}
+  .level:last-child{border-bottom:0}
+  .level .lv-name{font-weight:600;color:var(--ink)}
+  .level .lv-pct{font-weight:800;color:var(--gold3);font-size:18px}
+
+  /* Cases */
+  .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .case{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:36px;transition:.4s;box-shadow:var(--shadow-sm)}
+  .case:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+  .case .tag{display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold3);border:1px solid var(--line);padding:5px 12px;border-radius:999px;margin-bottom:16px;font-weight:600}
+  .case h3{font-size:20px;margin:0 0 12px}
+  .case p{color:var(--muted);font-size:16px;margin:0 0 20px}
+  .case .income{font-size:28px;font-weight:800;color:var(--gold3);letter-spacing:-1px}
+
+  /* Example calc */
+  .calc{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:48px;box-shadow:var(--shadow-md);max-width:820px}
+  .calc h3{font-size:24px;margin:0 0 20px}
+  .calc p{color:var(--ink2);font-size:16px;margin:0 0 12px;line-height:1.7}
+  .calc .result{margin-top:24px;padding:24px;background:linear-gradient(135deg,rgba(205,170,114,.12),rgba(176,143,86,.08));border-radius:14px;border:1px solid var(--line)}
+  .calc .result .sum{font-size:32px;font-weight:800;color:var(--gold3);letter-spacing:-1px}
+  .calc .result .label{font-size:14px;color:var(--muted);margin-top:4px}
+
+  /* Cabinet */
+  .cabinet{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center}
+  .cabinet-text h2{font-size:clamp(24px,3.2vw,38px);margin:14px 0 16px}
+  .cabinet-text p{color:var(--muted);font-size:16px;margin:0 0 20px;max-width:480px}
+  .cabinet-stats{display:flex;gap:28px;margin-top:32px;flex-wrap:wrap}
+  .cabinet-stats .st .n{font-size:32px;font-weight:800;color:var(--gold3);line-height:1}
+  .cabinet-stats .st .l{font-size:13px;color:var(--muted);margin-top:4px;max-width:140px}
+
+  /* FAQ */
+  .faq-s{background:var(--bg2)}
+  details.q{border:1px solid var(--line);border-radius:14px;padding:18px 24px;margin-bottom:14px;background:var(--panel);box-shadow:var(--shadow-sm)}
+  details.q summary{cursor:pointer;font-weight:600;font-size:17px;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  details.q summary::-webkit-details-marker{display:none}
+  details.q summary::after{content:"+";color:var(--gold);font-size:22px;transition:.3s}
+  details.q[open] summary::after{transform:rotate(45deg)}
+  details.q p{color:var(--muted);margin:12px 0 0;font-size:16px}
+
+  /* CTA bottom */
+  .cta-bottom{text-align:center;max-width:640px;margin:0 auto}
+  .cta-bottom h2{font-size:clamp(26px,3.4vw,40px);margin:14px 0 16px}
+  .cta-bottom p{color:var(--muted);font-size:17px;margin:0 0 32px}
+  .cta-bottom .btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+  /* Footer */
+  footer.ft{background:var(--dark);color:#e9e2d5;padding:60px 0 34px}
+  .ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px}
+  .ft-grid img.mark{height:90px;margin-bottom:16px;filter:brightness(1.4)}
+  .ft-grid h4{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2);margin:0 0 16px;font-weight:600}
+  .ft-grid a{display:block;color:#b3aa9a;font-size:16px;padding:6px 0;transition:.3s}
+  .ft-grid a:hover{color:var(--gold2)}
+  .ft-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#9c9384;font-size:12.5px}
+
+  /* Mobile menu */
+  .mobile-menu{position:fixed;inset:0;z-index:49;background:rgba(247,243,236,.98);backdrop-filter:blur(10px);display:none;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{font-size:22px;font-weight:600;color:var(--ink)}
+  .mobile-menu a:hover{color:var(--gold3)}
+
+  @media(max-width:980px){
+    .adv-grid,.case-grid{grid-template-columns:1fr 1fr}
+    .cabinet{grid-template-columns:1fr}
+    .ft-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:760px){
+    .nav-links{display:none}
+    .burger{display:flex}
+    .sec-pad{padding:72px 0}
+    .adv-grid,.case-grid{grid-template-columns:1fr}
+    .step{grid-template-columns:54px 1fr;gap:16px}
+    .levels{padding:28px}
+    .calc{padding:28px}
+    .ft-grid{grid-template-columns:1fr}
+    .p-hero-stats{gap:24px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Wellside Properties — на главную">
+      <img src="img/logo2.png" alt="Логотип Wellside Properties" class="mark">
+    </a>
+    <nav class="nav-links" aria-label="Главное меню">
+      <a href="index.html">Главная</a>
+      <a href="#advantages">Преимущества</a>
+      <a href="#how">Как это работает</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="https://t.me/wellside_partners_bot?start=dyglhcjknx" target="_blank" rel="noopener" class="btn btn-gold">Стать партнёром</a>
+      <button class="burger" id="burger" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Главная</a>
+  <a href="#advantages">Преимущества</a>
+  <a href="#how">Как это работает</a>
+  <a href="#cases">Кейсы</a>
+  <a href="#faq">Вопросы</a>
+  <a href="https://t.me/wellside_partners_bot?start=dyglhcjknx" target="_blank" rel="noopener" class="btn btn-gold">Стать партнёром</a>
+</div>
+
+<!-- HERO -->
+<section class="p-hero" id="top">
+  <span class="blob b1"></span>
+  <span class="blob b2"></span>
+  <div class="wrap p-hero-inner">
+    <span class="eyebrow">Партнёрская программа Wellside</span>
+    <h1>Зарабатывайте на рекомендациях <span class="gold-text">недвижимости</span></h1>
+    <p class="lead">Передавайте клиентов в Wellside — мы возьмём на себя подбор объекта, сопровождение сделки, оформление документов и работу с застройщиками. Вы получаете до 30% от комиссии. Работаем с сегментами бизнес, премиум и элит в Москве и Дубае.</p>
+    <div class="p-hero-cta">
+      <a href="https://t.me/wellside_partners_bot?start=dyglhcjknx" target="_blank" rel="noopener" class="btn btn-gold" style="min-width:240px;justify-content:center">Стать партнёром</a>
+      <a href="https://t.me/wellside_partners_bot?start=dyglhcjknx" target="_blank" rel="noopener" class="btn btn-ghost" style="min-width:240px;justify-content:center">Передать клиента</a>
+    </div>
+    <div class="p-hero-stats">
+      <div class="st"><div class="n">30%</div><div class="l">комиссии с каждой сделки</div></div>
+      <div class="st"><div class="n">6 712</div><div class="l">партнёров зарегистрировано</div></div>
+      <div class="st"><div class="n">1 382</div><div class="l">клиента передано в программу</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVANTAGES -->
+<section class="sec-pad" style="background:var(--bg2)" id="advantages">
+  <div class="wrap">
+    <div class="sec-head sec-center reveal">
+      <span class="eyebrow">Преимущества</span>
+      <h2>Почему партнёры выбирают <span class="gold-text">Wellside</span></h2>
+      <p>Простой и прозрачный инструмент заработка — всё прямо с вашего телефона, без лишних сложностей.</p>
+    </div>
+    <div class="adv-grid">
+      <div class="adv reveal d1"><div class="ico">✦</div><h3>Высокий процент</h3><p>До 30% от комиссии с каждой закрытой сделки — один из лучших показателей на рынке недвижимости.</p></div>
+      <div class="adv reveal d2"><div class="ico">✦</div><h3>Статус сделки онлайн</h3><p>Отслеживайте ход каждой сделки в реальном времени через личный кабинет прямо в телефоне.</p></div>
+      <div class="adv reveal d3"><div class="ico">✦</div><h3>Режим анонимности</h3><p>Передавайте клиентов без раскрытия собственных данных — полная конфиденциальность гарантирована.</p></div>
+      <div class="adv reveal d1"><div class="ico">✦</div><h3>Персональный менеджер</h3><p>Выделенный менеджер на связи прямо в чате вашего личного кабинета — оперативная помощь по любому вопросу.</p></div>
+      <div class="adv reveal d2"><div class="ico">✦</div><h3>Рекламные инструменты</h3><p>Персональные рекламные страницы для привлечения клиентов, а также массовая загрузка контактов и API-интеграция.</p></div>
+      <div class="adv reveal d3"><div class="ico">✦</div><h3>7 реферальных уровней</h3><p>Приглашайте партнёров и получайте процент с их сделок — стройте пассивный доход через собственную структуру.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sec-pad" id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Как это работает</span>
+      <h2>Пять простых шагов к <span class="gold-text">вашему заработку</span></h2>
+      <p>Всё максимально просто: вы рекомендуете — мы делаем всю работу — вы получаете вознаграждение.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal d1"><div class="sn"></div><div><h3>Передайте контакт</h3><p>У вас есть знакомый, который планирует покупку недвижимости? Передайте его контакт через Telegram-бот или он сам свяжется с нашим брокером.</p></div></div>
+      <div class="step reveal d1"><div class="sn"></div><div><h3>Мы подбираем и проводим сделку</h3><p>Наши эксперты подберут оптимальный объект под запрос клиента и полностью сопроводят сделку — от первого контакта до подписания договора.</p></div></div>
+      <div class="step reveal d1"><div class="sn"></div><div><h3>Следите за ходом в реальном времени</h3><p>Вы получаете push-уведомления о каждом этапе сделки в личном кабинете прямо в телефоне — полная прозрачность.</p></div></div>
+      <div class="step reveal d1"><div class="sn"></div><div><h3>Застройщик выплачивает комиссию</h3><p>После закрытия сделки застройщик перечисляет комиссионное вознаграждение нашей компании.</p></div></div>
+      <div class="step reveal d1"><div class="sn"></div><div><h3>Вы получаете свой бонус</h3><p>Мы оперативно выплачиваем вам 30% от комиссии — без задержек и скрытых условий.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXAMPLE CALC -->
+<section class="sec-pad" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="sec-head sec-center reveal">
+      <span class="eyebrow">Пример расчёта</span>
+      <h2>Сколько можно <span class="gold-text">заработать</span></h2>
+    </div>
+    <div class="calc reveal" style="margin:0 auto">
+      <h3>Реальный пример сделки</h3>
+      <p>Ваш знакомый приобретает квартиру в центре Москвы стоимостью <strong>25 000 000 ₽</strong>.</p>
+      <p>Комиссия от застройщика составляет <strong>750 000 ₽</strong>.</p>
+      <p>Ваша доля — 30% от этой суммы.</p>
+      <div class="result">
+        <div class="sum">250 000 ₽</div>
+        <div class="label">ваше вознаграждение за одну рекомендацию</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER NETWORK -->
+<section class="sec-pad" id="network">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Партнёрская сеть</span>
+      <h2>Приглашайте партнёров — <span class="gold-text">зарабатывайте больше</span></h2>
+      <p>Стройте собственную структуру и получайте процент с каждой сделки привлечённых вами партнёров — до 7 уровней глубины.</p>
+    </div>
+    <div class="levels reveal">
+      <h3>Реферальные уровни</h3>
+      <div class="level"><span class="lv-name">1 уровень — ваша сделка</span><span class="lv-pct">30%</span></div>
+      <div class="level"><span class="lv-name">2 уровень — сделка вашего партнёра</span><span class="lv-pct">10%</span></div>
+      <div class="level"><span class="lv-name">3 уровень — сделка вашего партнёра</span><span class="lv-pct">2,5%</span></div>
+      <div class="level"><span class="lv-name">4 уровень — сделка вашего партнёра</span><span class="lv-pct">1,5%</span></div>
+      <div class="level"><span class="lv-name">5 уровень — сделка вашего партнёра</span><span class="lv-pct">1%</span></div>
+      <div class="level"><span class="lv-name">6 уровень — сделка вашего партнёра</span><span class="lv-pct">0,5%</span></div>
+      <div class="level"><span class="lv-name">7 уровень — сделка вашего партнёра</span><span class="lv-pct">0,25%</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="sec-pad" style="background:var(--bg2)" id="cases">
+  <div class="wrap">
+    <div class="sec-head sec-center reveal">
+      <span class="eyebrow">Истории успеха</span>
+      <h2>Результаты наших <span class="gold-text">партнёров</span></h2>
+      <p>Реальные кейсы людей, которые уже зарабатывают с Wellside — от первых шагов до серьёзных сумм.</p>
+    </div>
+    <div class="case-grid">
+      <div class="case reveal d1">
+        <span class="tag">Кейс #1</span>
+        <h3>Партнёр Ярослав</h3>
+        <p>Присоединился в сентябре 2023 года. За первые шесть месяцев проявил высокую активность и внимание к деталям, успешно закрыв несколько сделок.</p>
+        <div class="income">634 000 ₽</div>
+      </div>
+      <div class="case reveal d2">
+        <span class="tag">Кейс #2</span>
+        <h3>Партнёр Алексей</h3>
+        <p>Стартовал в январе 2024 года. Активно использовал все инструменты платформы и за первые три месяца закрыл три сделки.</p>
+        <div class="income">551 310 ₽</div>
+      </div>
+      <div class="case reveal d3">
+        <span class="tag">Кейс #3</span>
+        <h3>Анонимный партнёр</h3>
+        <p>Присоединился в феврале 2024 года в режиме конфиденциальности. Уже в первый месяц привлёк более 120 клиентов и закрыл крупную сделку.</p>
+        <div class="income">805 520 ₽</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CABINET -->
+<section class="sec-pad" id="cabinet">
+  <div class="wrap">
+    <div class="cabinet reveal">
+      <div class="cabinet-text">
+        <span class="eyebrow">Личный кабинет</span>
+        <h2>Всё управление — <span class="gold-text">в вашем телефоне</span></h2>
+        <p>Мы создали максимально простой и удобный инструмент. Никаких логинов, паролей и звонков менеджерам — просто зайдите в наш Telegram-бот и следите за уведомлениями о ходе ваших сделок.</p>
+        <p>Мы полностью ведём вашего клиента — от первого контакта до закрытия сделки.</p>
+        <div class="cabinet-stats">
+          <div class="st"><div class="n">400+</div><div class="l">проектов от проверенных застройщиков</div></div>
+          <div class="st"><div class="n">7</div><div class="l">реферальных уровней</div></div>
+          <div class="st"><div class="n">30%</div><div class="l">комиссии с каждой сделки</div></div>
+        </div>
+      </div>
+      <div style="text-align:center">
+        <a href="https://t.me/wellside_partners_bot?start=dyglhcjknx" target="_blank" rel="noopener" class="btn btn-gold" style="margin-top:20px">Открыть личный кабинет <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-s sec-pad" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Частые вопросы</span>
+      <h2>Ответы на <span class="gold-text">главные вопросы</span></h2>
+    </div>
+    <div style="max-width:820px">
+      <details class="q reveal d1"><summary>Кто может стать партнёром?</summary><p>Любой человек, независимо от опыта в недвижимости. Вам не нужна лицензия или специальные знания — достаточно рекомендовать нас знакомым, которые планируют покупку недвижимости.</p></details>
+      <details class="q reveal d1"><summary>Как передать клиента?</summary><p>Через наш Telegram-бот. Это занимает меньше минуты: укажите контакт клиента, и мы свяжемся с ним самостоятельно. Вы можете сделать это анонимно.</p></details>
+      <details class="q reveal d1"><summary>Когда я получу выплату?</summary><p>Выплата производится оперативно после закрытия сделки и получения комиссии от застройщика — без задержек и скрытых условий.</p></details>
+      <details class="q reveal d1"><summary>Можно ли работать анонимно?</summary><p>Да. Режим анонимности позволяет передавать клиентов без раскрытия ваших личных данных. Вся коммуникация проходит через защищённый Telegram-бот.</p></details>
+      <details class="q reveal d1"><summary>Что такое реферальные уровни?</summary><p>Вы можете приглашать других партнёров в свою структуру. Когда партнёр из вашей сети закрывает сделку, вы получаете процент — до 7 уровней глубины. Это позволяет строить пассивный доход.</p></details>
+      <details class="q reveal d1"><summary>В каких сегментах вы работаете?</summary><p>Мы работаем в сегментах бизнес, премиум и элит-класса. География — Москва и Дубай. Более 400 проектов от проверенных застройщиков доступны для покупки.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BOTTOM -->
+<section class="sec-pad">
+  <div class="wrap">
+    <div class="cta-bottom reveal">
+      <span class="eyebrow">Начните зарабатывать</span>
+      <h2>Присоединяйтесь к <span class="gold-text">партнёрской программе</span></h2>
+      <p>Станьте частью сети Wellside — зарабатывайте на рекомендациях без вложений и специальных знаний.</p>
+      <div class="btns">
+        <a href="https://t.me/wellside_partners_bot?start=dyglhcjknx" target="_blank" rel="noopener" class="btn btn-gold" style="min-width:240px;justify-content:center">Стать партнёром</a>
+        <a href="https://t.me/wellside_partners_bot?start=dyglhcjknx" target="_blank" rel="noopener" class="btn btn-ghost" style="min-width:240px;justify-content:center">Передать клиента</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <img src="img/logo.png" alt="Wellside Properties" class="mark">
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <a href="index.html">Главная</a>
+        <a href="#advantages">Преимущества</a>
+        <a href="#how">Как это работает</a>
+        <a href="#cases">Кейсы</a>
+        <a href="#faq">Вопросы</a>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <a href="tel:+74996435423">+7 499 643-54-23</a>
+        <a href="#">Москва, Цветной бульвар,<br>Трубная ул., 32, стр. 4</a>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span>© 2026 Wellside Properties. Партнёрская программа.</span>
+      <span>Политика конфиденциальности · Согласие на обработку персональных данных</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>40);
+  window.addEventListener('scroll',onScroll);onScroll();
+
+  const burger=document.getElementById('burger');
+  const menu=document.getElementById('mobileMenu');
+  burger.addEventListener('click',()=>menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:0.14});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
